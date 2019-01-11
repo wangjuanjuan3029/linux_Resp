@@ -32,20 +32,21 @@ static const qt_meta_stringdata_Widget_t qt_meta_stringdata_Widget = {
 QT_MOC_LITERAL(0, 0, 6), // "Widget"
 QT_MOC_LITERAL(1, 7, 19), // "on_btn_bind_clicked"
 QT_MOC_LITERAL(2, 27, 0), // ""
-QT_MOC_LITERAL(3, 28, 15), // "doNewConnection"
-QT_MOC_LITERAL(4, 44, 7), // "doError"
-QT_MOC_LITERAL(5, 52, 28), // "QAbstractSocket::SocketError"
-QT_MOC_LITERAL(6, 81, 11), // "socketError"
-QT_MOC_LITERAL(7, 93, 14), // "doDisconnected"
-QT_MOC_LITERAL(8, 108, 11), // "doReadyRead"
-QT_MOC_LITERAL(9, 120, 11), // "doConnected"
-QT_MOC_LITERAL(10, 132, 19) // "on_btn_send_clicked"
+QT_MOC_LITERAL(3, 28, 19), // "on_btn_send_clicked"
+QT_MOC_LITERAL(4, 48, 15), // "doNewConnection"
+QT_MOC_LITERAL(5, 64, 7), // "doError"
+QT_MOC_LITERAL(6, 72, 28), // "QAbstractSocket::SocketError"
+QT_MOC_LITERAL(7, 101, 11), // "socketError"
+QT_MOC_LITERAL(8, 113, 14), // "doDisconnected"
+QT_MOC_LITERAL(9, 128, 11), // "doReadyRead"
+QT_MOC_LITERAL(10, 140, 11) // "doConnected"
 
     },
-    "Widget\0on_btn_bind_clicked\0\0doNewConnection\0"
+    "Widget\0on_btn_bind_clicked\0\0"
+    "on_btn_send_clicked\0doNewConnection\0"
     "doError\0QAbstractSocket::SocketError\0"
     "socketError\0doDisconnected\0doReadyRead\0"
-    "doConnected\0on_btn_send_clicked"
+    "doConnected"
 };
 #undef QT_MOC_LITERAL
 
@@ -65,8 +66,8 @@ static const uint qt_meta_data_Widget[] = {
  // slots: name, argc, parameters, tag, flags
        1,    0,   49,    2, 0x08 /* Private */,
        3,    0,   50,    2, 0x08 /* Private */,
-       4,    1,   51,    2, 0x08 /* Private */,
-       7,    0,   54,    2, 0x08 /* Private */,
+       4,    0,   51,    2, 0x08 /* Private */,
+       5,    1,   52,    2, 0x08 /* Private */,
        8,    0,   55,    2, 0x08 /* Private */,
        9,    0,   56,    2, 0x08 /* Private */,
       10,    0,   57,    2, 0x08 /* Private */,
@@ -74,8 +75,8 @@ static const uint qt_meta_data_Widget[] = {
  // slots: parameters
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, 0x80000000 | 5,    6,
     QMetaType::Void,
+    QMetaType::Void, 0x80000000 | 6,    7,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -90,18 +91,18 @@ void Widget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->on_btn_bind_clicked(); break;
-        case 1: _t->doNewConnection(); break;
-        case 2: _t->doError((*reinterpret_cast< QAbstractSocket::SocketError(*)>(_a[1]))); break;
-        case 3: _t->doDisconnected(); break;
-        case 4: _t->doReadyRead(); break;
-        case 5: _t->doConnected(); break;
-        case 6: _t->on_btn_send_clicked(); break;
+        case 1: _t->on_btn_send_clicked(); break;
+        case 2: _t->doNewConnection(); break;
+        case 3: _t->doError((*reinterpret_cast< QAbstractSocket::SocketError(*)>(_a[1]))); break;
+        case 4: _t->doDisconnected(); break;
+        case 5: _t->doReadyRead(); break;
+        case 6: _t->doConnected(); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
         switch (_id) {
         default: *reinterpret_cast<int*>(_a[0]) = -1; break;
-        case 2:
+        case 3:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<int*>(_a[0]) = -1; break;
             case 0:

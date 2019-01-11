@@ -19,13 +19,15 @@ public:
 
 private slots:
     void on_btn_bind_clicked();
+    void on_btn_send_clicked();
+
     void doNewConnection();
     void doError(QAbstractSocket::SocketError socketError);
     void doDisconnected();
     void doReadyRead();
     void doConnected();
 
-    void on_btn_send_clicked();
+
 
 private:
     Ui::Widget *ui;

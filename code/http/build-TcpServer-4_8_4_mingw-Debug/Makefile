@@ -206,6 +206,7 @@ Makefile: ../TcpServer/TcpServer.pro C:/QT/Qt5.7.0/5.7/mingw53_32/mkspecs/win32-
 		C:/QT/Qt5.7.0/5.7/mingw53_32/mkspecs/features/lex.prf \
 		../TcpServer/TcpServer.pro \
 		C:/QT/Qt5.7.0/5.7/mingw53_32/lib/qtmaind.prl \
+		C:/QT/Qt5.7.0/5.7/mingw53_32/lib/Qt5Multimedia.prl \
 		C:/QT/Qt5.7.0/5.7/mingw53_32/lib/Qt5Widgets.prl \
 		C:/QT/Qt5.7.0/5.7/mingw53_32/lib/Qt5Gui.prl \
 		C:/QT/Qt5.7.0/5.7/mingw53_32/lib/Qt5Network.prl \
@@ -358,6 +359,7 @@ C:/QT/Qt5.7.0/5.7/mingw53_32/mkspecs/features/yacc.prf:
 C:/QT/Qt5.7.0/5.7/mingw53_32/mkspecs/features/lex.prf:
 ../TcpServer/TcpServer.pro:
 C:/QT/Qt5.7.0/5.7/mingw53_32/lib/qtmaind.prl:
+C:/QT/Qt5.7.0/5.7/mingw53_32/lib/Qt5Multimedia.prl:
 C:/QT/Qt5.7.0/5.7/mingw53_32/lib/Qt5Widgets.prl:
 C:/QT/Qt5.7.0/5.7/mingw53_32/lib/Qt5Gui.prl:
 C:/QT/Qt5.7.0/5.7/mingw53_32/lib/Qt5Network.prl:

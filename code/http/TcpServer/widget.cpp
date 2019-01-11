@@ -21,6 +21,9 @@ Widget::~Widget()
 void Widget::init()
 {
     myserver = new QTcpServer(this);
+
+    ui->lindit_serv_addr->setText("10.7.3.78");
+    ui->linedit_server_port->setText("8888");
 }
 void Widget::on_btn_bind_clicked()
 {
@@ -42,6 +45,7 @@ void Widget::on_btn_bind_clicked()
     myAddr = ui->lindit_serv_addr->text();
     QString myPort = ui->linedit_server_port->text();
     bool ret = myserver->listen(QHostAddress(myAddr),myPort.toUInt());
+    //listen 告诉服务器侦听地址、地址和端口端口上的传入连接
     QString msg;
     if(!ret)
     {
@@ -71,17 +75,7 @@ QTcpServer将停止接受新连接，但操作系统仍可能将它们保留在�
 
 void Widget::doNewConnection()
 {
-   client = myserver->nextPendingConnection();
-   arrayClient.append(client);
-   //将下一个挂起的连接作为已连接的QTcpSocket对象返回。
-    //客户端断开连接
-   connect(client,SIGNAL(disconnected()),this,SLOT(doDisconnected()));
-   //disconnected 当套接字断开连接时发出此信号。
-   //读取内容
-   connect(client,SIGNAL(readyRead()),this,SLOT(doReadyRead()));
 
-   //客户端的连入
-   connect(client,SIGNAL(connected()),this,SLOT(doConnected()));
 }
 
 void Widget::doError(QAbstractSocket::SocketError socketError)
@@ -95,7 +89,7 @@ void Widget::doDisconnected()
     QString msg = "disconnect";
     ui->textEdit->append(msg);
 
-    //删除对应客户端‘
+    //删除对应客户端
     for(int i=0;i<arrayClient.length();i++)
     {
         if(arrayClient.at(i)->peerAddress() == client->peerAddress())
@@ -127,27 +121,30 @@ void Widget::doReadyRead()
 void Widget::doConnected()
 {
     QTcpSocket *client = (QTcpSocket*)this->sender();
-    QString msg = QString("client connected");
+    QString msg = QString("client connected").arg(client->peerAddress().toString()).arg(client->peerPort());
     ui->textEdit->append(msg);
 }
-
-
 
 void Widget::on_btn_send_clicked()
 {
     QString ip = ui->lindit_client_addr->text();
     QString port = ui->linedit_client_port->text();
+    qDebug()<<ip;
+    qDebug()<<port;
     //查找对应的客户
-    for(int i=0;i<arrayClient.length();i++)
-    {
-        if(arrayClient.at(i)->peerAddress().toString() == ip)
-        {
-            if(arrayClient.at(i)->peerPort() == port.toUInt())
-            {
-                QString msg = ui->textEdit_2->toPlainText();
-                arrayClient.at(i)->write(msg.toLatin1());
-                break;
-            }
-        }
-    }
+    QString msg = ui->textEdit_2->toPlainText();
+    client->write(msg.toUtf8());
+
+//    for(int i=0;i<arrayClient.length();i++)
+//    {
+//        if(arrayClient.at(i)->peerAddress().toString() == ip)
+//        {
+//            if(arrayClient.at(i)->peerPort() == port.toUInt())
+//            {
+//                QString msg = ui->textEdit_2->toPlainText();
+//                arrayClient.at(i)->write(msg.toUtf8());
+//                break;
+//            }
+//        }
+//    }
 }
